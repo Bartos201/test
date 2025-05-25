@@ -1,9 +1,3 @@
-# Game Store Application
-
-A modern game storefront built with Angular 18 and powered by a Node.js/Express backend API. This project demonstrates a full-stack TypeScript application with end-to-end testing.
-
-![Game Store Screenshot](frontend/my-shop/src/assets/images/Logo.svg)
-
 ## Features
 
 - Browse and search games catalog
