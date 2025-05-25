@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:firefox": "cypress run --browser firefox",
+    "cypress:run:edge": "cypress run --browser edge",
+    "e2e": "ng serve --configuration=development & cypress open",
+    "e2e:headless": "ng serve --configuration=development & cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^14.4.0"
+  }
+}
