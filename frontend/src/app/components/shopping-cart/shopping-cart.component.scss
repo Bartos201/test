@@ -1,0 +1,127 @@
+@use 'typography' as type;
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+$border: 1px solid rgba(184, 184, 184, 0.3);
+$header-height: 6.9rem;
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 5.9rem;
+  height: vars.$navbar-height;
+  border: none;
+  background-color: inherit;
+  @include type.font-14-medium-uppercase;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+  &--active {
+    background-color: #f0f0f0;
+  }
+}
+
+.cart-container {
+  background-color: #f0f0f0;
+  width: 37rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    padding: 1.3rem 0.9rem;
+    border-bottom: $border;
+    @include type.font-15-bold-uppercase;
+  }
+
+  &__clear-btn {
+    width: 13.2rem;
+    height: calc($header-height - 2.6rem);
+    margin-left: 0.8rem;
+    border: none;
+    cursor: pointer;
+    @include type.font-15-bold-uppercase;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 0px 1px #6C36ADCC;
+    background: linear-gradient(0deg, #7A3DC6 0%, #B65AE2 100%);
+  }
+}
+
+.cart-item {
+  padding: 0.5rem;
+  display: flex;
+  height: 6.6rem;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(184, 184, 184, 0.3);
+  transition: all 0.2s ease-in-out;
+
+  &:not(:last-child) {
+    border-bottom: $border;
+  }
+
+  &__image {
+    width: 10rem;
+    height: 5.6rem;
+  }
+
+  &__info {
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-overflow: ellipsis;
+    height: 100%;
+    margin-left: 0.6rem;
+    width: 50%;
+    position: relative;
+  }
+
+  &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    @include type.font-14-medium-uppercase;
+    color: #212121;
+    transition: transform 0.2s ease;
+  }
+
+  &__remove {
+    opacity: 0;
+    top: 45%;
+    position: absolute;
+    @include type.font-12-medium;
+    margin-top: 0.3rem;
+    text-decoration: underline;
+    color: #212121;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+  }
+
+  &__price {
+    @include type.font-13-medium-uppercase;
+    color: #404040;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  &:hover {
+    .cart-item__title {
+      transform: translateY(-1.2rem);
+    }
+
+    .cart-item__remove {
+      opacity: 1;
+    }
+  }
+}

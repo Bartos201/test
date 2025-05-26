@@ -1,0 +1,17 @@
+@use './mixins';
+
+@mixin font-15-bold-uppercase {
+  @include mixins.font(700, 15px, 100%, uppercase);
+}
+
+@mixin font-14-medium-uppercase {
+  @include mixins.font(600, 14px, 17px, uppercase);
+}
+
+@mixin font-13-medium-uppercase {
+  @include mixins.font(600, 13px, 100%, uppercase);
+}
+
+@mixin font-12-medium {
+  @include mixins.font(600, 12px, 13px);
+}

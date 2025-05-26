@@ -41,7 +41,7 @@ The backend server will start on http://localhost:3000
 
 ```bash
 # Navigate to the frontend directory
-cd frontend/my-shop
+cd frontend
 
 # Install dependencies
 npm install
@@ -59,7 +59,7 @@ The Angular application will be available at http://localhost:4200
 To run the Angular unit tests:
 
 ```bash
-cd frontend/my-shop
+cd frontend
 npm test
 ```
 

@@ -1,0 +1,16 @@
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 800px;
+
+
+// Responsive margins (left and right)
+$margin-x-xs: 1rem;    // 10px with base font size of 10px
+$margin-x-sm: 4rem;    // 20px with base font size of 10px
+$margin-x-md: 6rem;    // 30px with base font size of 10px
+
+$navbar-height: 49px;
+$max-width: 1060px;
+// Container width with responsive margins applied
+$container-width-xs: calc(100% - (#{$margin-x-xs} * 2));
+$container-width-sm: calc(100% - (#{$margin-x-sm} * 2));
+$container-width-md: calc(100% - (#{$margin-x-md} * 2));

@@ -1,0 +1,40 @@
+<button class="cart-button" (click)="toggleCart()" [class.cart-button--active]="isOpen" aria-label="Shopping Cart" cdkOverlayOrigin #trigger="cdkOverlayOrigin" data-cy="cart-button">
+  <img src="assets/images/Shape.svg" alt="Cart Icon" />
+  @if (cartItems().length > 0) {
+    <span data-cy="cart-count">{{ cartItems().length }}</span>
+  }
+</button>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayPositions]="positions"
+  (backdropClick)="toggleCart()"
+>
+  <div class="cart-container" data-cy="cart-container">
+    <div class="cart-container__header">
+      <span data-cy="cart-items-count">{{ cartItems().length }} {{ cartItems().length === 1 ? 'item' : 'items' }} in cart</span>
+      <div>
+        <span data-cy="cart-total-price">{{ totalPrice().toFixed(2) | currency : 'USD' }}</span>
+        @if( cartItems().length > 0) {
+           <button class="cart-container__clear-btn" (click)="clearCart()" data-cy="clear-cart-button">Clear Cart</button>
+        }
+      </div>
+    </div>
+    @for (item of cartItems(); track item.id) {      <div class="cart-item" data-cy="cart-item">
+        <div class="cart-item__image">
+          <img [ngSrc]="item.imageUrl" width="100" height="56" alt="{{ item.title }}" />
+        </div>
+        <div class="cart-item__info">
+          <p class="cart-item__title" data-cy="cart-item-title">{{ item.title }}</p>
+          <span class="cart-item__remove" (click)="removeItem(item.id)" data-cy="remove-cart-item">Remove</span>
+        </div>
+        <div class="cart-item__price" data-cy="cart-item-price">
+          {{ item.price.toFixed(2) | currency : 'USD' }}
+        </div>
+      </div>
+    }
+  </div>
+</ng-template>
+

@@ -1,0 +1,54 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+@use 'typography' as type;
+
+.home {
+  height: calc(100vh - vars.$navbar-height);
+  @include mix.responsive-container;
+  display: flex;
+  flex-direction: column;
+  max-width: vars.$max-width;
+
+  &__title {
+    @include type.font-15-bold-uppercase;
+    margin: 2.5rem 0 1.5rem 0;
+  }
+
+  &__featured {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    max-height: 37rem;
+    min-height: 37rem;
+    box-shadow: 0px 1px 5px 0px #0000004D;
+
+    @include mix.respond-below(sm) {
+      min-height: 15rem;
+    }
+
+    @include mix.respond-below(md) {
+      min-height: 25rem;
+    }
+  }
+
+  &__secret-button {
+    @include type.font-14-medium-uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  &__game-list {
+    margin-top: 1.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+
+    @media (min-width: 1350px) {
+      justify-content: space-between;
+    }
+  }
+}

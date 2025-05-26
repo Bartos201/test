@@ -1,0 +1,23 @@
+<div class="game-card" [class.has-discount]="game().discount > 0" data-cy="game-card">
+  <div class="game-card__image" data-cy="game-card-image">
+    <img [ngSrc]="game().imageUrl" width="196" height="110" alt="{{ game().title }}" />
+  </div>
+  <h2 class="game-card__title" data-cy="game-card-title">{{ game().title }}</h2>
+  <div class="game-card__footer">
+    @if (game().discount && !game().owned && !game().inShoppingCart) {
+      <div class="game-button game-button--discount" data-cy="game-card-discount">-{{ game().discount}}%</div>
+    }
+    <button
+      class="game-button"
+      [class.game-button--owned]="game().owned"
+      (click)="addToCart()"
+      [disabled]="game().inShoppingCart || game().owned"
+      data-cy="game-card-button">
+      @if (game().owned) {
+        Owned
+      } @else {
+        {{ game().inShoppingCart ? 'In Cart' : (game().price | currency: 'USD') }}
+      }
+    </button>
+  </div>
+</div>

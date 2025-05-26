@@ -1,0 +1,26 @@
+<main class="home" data-cy="home-page">
+  <h1 class="home__title" data-cy="home-title">Game of the week</h1>
+
+  @if(gameOfTheWeek(); as gameOfTheWeek) {
+    <section class="home__featured" data-cy="featured-game">
+      <img [ngSrc]="gameOfTheWeek.imageUrl"
+           fill
+           priority="true"
+           data-cy="featured-game-image"
+           alt="Game of the week"
+           title="Game of the week: {{gameOfTheWeek.title}}">
+
+      <button class="home__secret-button" data-cy="secret-button" (click)="onSecretButtonClick()">A secret button that you should totally implement</button>
+    </section>
+  }
+  <section class="home__game-section">
+    <div class="home__game-list" data-cy="game-list">
+      <!-- If it was a long list, I would use a virtual scroller -->
+      @for (game of games(); track game.id; let i = $index){
+        <article class="home__game-item" data-cy="game-item">
+          <app-game-card [game]="game"></app-game-card>
+        </article>
+      }
+    </div>
+  </section>
+</main>
