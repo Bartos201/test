@@ -47,7 +47,7 @@ cd frontend
 npm install
 
 # Start the development server
-ng serve
+npm start
 ```
 
 The Angular application will be available at http://localhost:4200
