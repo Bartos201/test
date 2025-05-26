@@ -49,7 +49,7 @@ export const games: Game[] = [
    {
     id: '6',
     name: 'Witcher',
-    imgPath: '/assets/images/big-witcher.jpg',
+    imgPath: '/assets/images/big-witcher.png',
     price: 9.99,
     isGameOfTheWeek: true,
     discount: 50,
